@@ -1,10 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import styles from './App.scss';
+
+import Poem from '../Poem/Poem';
 
 class App extends React.Component {
   render() {
-    return <h1 className={styles.app}>Poetry App</h1>;
+    return (
+      <div className={styles.app}>
+        <Poem />
+      </div>
+    )
+
   }
 }
 
