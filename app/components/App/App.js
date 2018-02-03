@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Poem from '../Poem/Poem'
 
 class App extends React.Component {
   render() {
-    return <h1>Poetry App</h1>;
+    return <Poem />;
   }
 }
 
