@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './app/index.js',
@@ -8,6 +9,7 @@ module.exports = {
   },
   module: {
     rules: [
+      // JAVASCRIPT
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -20,6 +22,11 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'app/index.html'
+    })
+  ],
   devServer: {
     contentBase: path.join(__dirname, 'dist')
   }
