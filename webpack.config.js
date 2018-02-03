@@ -35,13 +35,18 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
+                sourceMap: true,
                 modules: true,
                 importLoaders: 1,
                 localIdentName: '[name]__[local]__[hash:base64:5]'
               }
             },
-            'postcss-loader',
-            'sass-loader'
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
+            }
           ]
         })
       }
@@ -57,6 +62,7 @@ module.exports = {
       minChunks: Infinity,
     }),
   ],
+  devtool: 'source-map',
   devServer: {
     contentBase: path.join(__dirname, 'dist')
   },
