@@ -1,3 +1,11 @@
-.app {
-  background: gray;
+/* should this be placed into a more general file? */
+@import url('https://use.typekit.net/xkj3rje.css');
+
+/* should probably be in a shared css styles file */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
 }
