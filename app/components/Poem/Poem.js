@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import styles from './Poem.scss';
 
 function Poem(props)  {
@@ -15,8 +14,9 @@ function Poem(props)  {
       <ul key={index}>
         {
           // wrap each line in a li element
-          stanza.map((line, index) => 
-            <li key={index}>{line}</li>)
+          stanza.map((line, index) => {
+            return <li key={index}>{line}</li>;
+          })
         }
       </ul>
     );
