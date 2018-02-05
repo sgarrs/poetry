@@ -2,8 +2,16 @@ function PoemModel(data) {
   this.title = data.title || "Title";
   this.body = data.body || [];
   this.author = data.author || "Author";
-  this.length = 0;
 
+  function getLength(body) {
+    let counter = 0;
+    for (let stanza of body) {
+      for (let line of stanza) {
+        counter++;
+      }
+    }
+    return counter;
+  }
 
   // find HTML entities in stanza lines
   function findHTMLEntities(body) {
@@ -27,6 +35,7 @@ function PoemModel(data) {
   function replaceAt(str, index, original, char) {
     return str.substr(0, index) + char + str.substr(index + original.length);
   }
+
   function normalize(body, entities) {
     // replace every instance of entityArray with the correct unicode
     // iterate through entityArray
@@ -50,11 +59,10 @@ function PoemModel(data) {
     return body;
   }
 
-  
-
   return {
     title: this.title,
-    body: normalize(this.body, findHTMLEntities(this.body))
+    body: normalize(this.body, findHTMLEntities(this.body)),
+    length: getLength(this.body)
   }
 }
 
