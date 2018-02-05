@@ -3,7 +3,7 @@ function PoemModel(data) {
   this.body = data.body || [];
   this.author = data.author || "Author";
 
-  function getLength(body) {
+  function getPoemLength(body) {
     let counter = 0;
     for (let stanza of body) {
       for (let line of stanza) {
@@ -11,6 +11,16 @@ function PoemModel(data) {
       }
     }
     return counter;
+  }
+
+  function getStanzaLength(body) {
+    let stanzaLengthArray = [];
+
+    for (let stanza of body) {
+      stanzaLengthArray.push(stanza.length);
+    }
+
+    return stanzaLengthArray;
   }
 
   // find HTML entities in stanza lines
@@ -62,7 +72,8 @@ function PoemModel(data) {
   return {
     title: this.title,
     body: normalize(this.body, findHTMLEntities(this.body)),
-    length: getLength(this.body)
+    length: getPoemLength(this.body),
+    stanzaLength: getStanzaLength(this.body)
   }
 }
 

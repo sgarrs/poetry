@@ -1,0 +1,16 @@
+.linecounter {
+  .stanza {
+    padding-left: 0;
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+
+
+    .line {
+      list-style-type: none;
+      align-self: center;
+      padding: .5em 0;
+    }
+
+  }
+}

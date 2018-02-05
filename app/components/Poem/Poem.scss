@@ -2,17 +2,21 @@
   font-family: "ff-tisa-web-pro", serif;
   padding-left: 5em;
 
-  h1 {
-    font-size: 3em;
+  .container {
+    display: flex;
+  }
+
+  .title {
+    font-size: 3rem;
     font-weight: 400;
   }
-  ul {
+  .stanza {
       padding-left: 0;
       margin-bottom: 2em;
 
-    li {
+    .line {
       list-style-type: none;
-      font-size: 1.8em;
+      font-size: 1.8rem;
       line-height: 1.5;
     }
   }

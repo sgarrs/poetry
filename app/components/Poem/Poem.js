@@ -1,6 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import styles from './Poem.scss';
+
+import LineCounter from '../LineCounter/LineCounter';
 
 function Poem(props)  {
   // poem body should be an array of stanzas, which contain an array of lines
@@ -11,11 +12,11 @@ function Poem(props)  {
     return (
       // index as key should be fine (although in a multi-dimensional array, I'm not sure)
       // this list will always be static since they represent a monolithic work of literature
-      <ul key={index}>
+      <ul className={styles.stanza} key={index}>
         {
           // wrap each line in a li element
           stanza.map((line, index) => {
-            return <li key={index}>{line}</li>;
+            return <li className={styles.line} key={index}>{line}</li>;
           })
         }
       </ul>
@@ -24,8 +25,11 @@ function Poem(props)  {
 
   return (
     <div className={styles.poem}>
-      <h1>{props.poem.title}</h1>
-      {poemBody}
+      <h1 className={styles.title}>{props.poem.title}</h1>
+      <div className={styles.container}>
+        <LineCounter poem={props.poem} />
+        <div>{poemBody}</div>
+      </div>
     </div>
   );
 }
