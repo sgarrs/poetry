@@ -12,7 +12,8 @@ function LineCounter(props)  {
           {
             stanza.map((line, index) => {
               counter++;
-              return <li className={styles.line} key={index}>{counter}</li>;
+              let lineStyle = {gridRow: counter, gridRowEnd: counter};
+              return <li className={styles.line} style={lineStyle} key={index}>{counter}</li>;
             })
           }
         </ul>

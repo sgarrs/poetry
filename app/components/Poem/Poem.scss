@@ -1,23 +1,33 @@
+.container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: repeat(64, auto);
+  grid-template-areas: 
+    "linecounter  poem";
+}
 .poem {
   font-family: "ff-tisa-web-pro", serif;
   padding-left: 5em;
-
-  .container {
-    display: flex;
-  }
+  grid-area: poem;
 
   .title {
     font-size: 3rem;
+    line-height: 1.5;
+    margin: 0;
     font-weight: 400;
   }
-  .stanza {
-      padding-left: 0;
-      margin-bottom: 2em;
 
-    .line {
-      list-style-type: none;
-      font-size: 1.8rem;
-      line-height: 1.5;
+  .body {
+
+    .stanza {
+        padding-left: 0;
+        margin-bottom: 2em;
+
+      .line {
+        list-style-type: none;
+        font-size: 1.5rem;
+        line-height: 1.5;
+      }
     }
   }
 }
